@@ -83,6 +83,27 @@ I hope you enjoy your Neovim journey,
 
 P.S. You can delete this when you're done too. It's your config now! :)
 --]]
+--------------------------------------------------------My Vim StartUp Setting----------------------------------
+vim.opt.encoding = 'utf-8'
+vim.opt.fileencodings = {'utf-8', 'gbk', 'gb18030', 'gb2312', 'latin1', 'cp936'} --to deal with the potential Chinese character encoding problems in windows powershell
+vim.opt.smarttab = true
+vim.opt.autoindent = true
+vim.opt.smartindent = true
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
+vim.opt.softtabstop = 4
+
+vim.o.shell = "pwsh"
+--thanks to the good sir from reddit. Fix the neovim shell command encoding problem using powershell 7.x version.
+--https://www.reddit.com/r/neovim/comments/1crdv93/neovim_on_windows_using_windows_terminal_and/
+vim.o.shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command $PSStyle.OutputRendering = 'PlainText';"
+vim.o.shellredir = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode"
+vim.o.shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode"
+vim.opt.shellxquote = ""
+vim.opt.shellquote = ""
+-------------------------------------------------------My Vim StartUp Setting End-----------------------------
+
 
 -- Set <space> as the leader key
 -- See `:help mapleader`
