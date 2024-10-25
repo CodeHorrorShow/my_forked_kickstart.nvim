@@ -9,6 +9,8 @@ vim.opt.expandtab = true
 vim.opt.softtabstop = 4
 
 vim.o.shell = "pwsh"
+--thanks to the good sir from reddit. Fix the neovim shell command encoding problem using powershell 7.x version.
+--https://www.reddit.com/r/neovim/comments/1crdv93/neovim_on_windows_using_windows_terminal_and/
 vim.o.shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command $PSStyle.OutputRendering = 'PlainText';"
 vim.o.shellredir = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode"
 vim.o.shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode"
