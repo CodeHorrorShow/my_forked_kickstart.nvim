@@ -82,3 +82,20 @@ vim.opt.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
+
+--Clear font italics on 'ColorScheme' event
+vim.api.nvim_create_autocmd("ColorScheme", {
+    desc = "Clear Colorscheme italics",
+    group = vim.api.nvim_create_augroup("clear_italics", { clear = true }),
+    callback = function()
+        vim.cmd.hi("Boolean gui=none cterm=NONE")
+        vim.cmd.hi("Character gui=none cterm=NONE")
+        vim.cmd.hi("Constant gui=none cterm=NONE")
+        vim.cmd.hi("SpecialKey gui=none cterm=NONE")
+        vim.cmd.hi("String gui=none cterm=NONE")
+        vim.cmd.hi("TSKeyword gui=none cterm=NONE")
+        vim.cmd.hi("WhichKeyValue gui=none cterm=NONE")
+        vim.cmd.hi("TroubleSource gui=none cterm=NONE")
+        vim.cmd.hi("Comment gui=none, cterm=none")
+    end,
+})
