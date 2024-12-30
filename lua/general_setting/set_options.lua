@@ -2,7 +2,6 @@ vim.opt.encoding = 'utf-8'
 vim.opt.fileencodings = {'utf-8', 'gbk', 'gb18030', 'gb2312', 'latin1', 'cp936'}
 vim.opt.smarttab = true
 vim.opt.autoindent = true
-vim.opt.smartindent = true
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
@@ -46,6 +45,10 @@ end)
 
 -- Enable break indent
 vim.opt.breakindent = true
+-- line wrapping
+vim.opt.wrap = true
+vim.opt.showbreak = string.rep(" ", 3) -- Make it so that long lines wrap smartly
+vim.opt.linebreak = true
 
 -- Save undo history
 vim.opt.undofile = true
