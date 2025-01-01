@@ -50,6 +50,12 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 vim.keymap.set('n', '<C-d>', '<C-d>zz')
 vim.keymap.set('n', '<C-u>', '<C-u>zz')
 
+---- Auto indent on empty line.
+vim.keymap.set('n', 'i', function ()
+  return string.match(vim.api.nvim_get_current_line(), '%g') == nil
+         and 'cc' or 'i'
+end, {expr=true, noremap=true}
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
